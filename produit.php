@@ -1,0 +1,12 @@
+<?php
+	include("header_nav.php");
+?>
+		<section>
+			<article>
+			</article>
+			<article>
+			</article>
+		</section>
+<?php
+	include("footer.php");
+?>
