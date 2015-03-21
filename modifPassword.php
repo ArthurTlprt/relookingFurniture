@@ -10,7 +10,7 @@
 		{
 ?>
 		<section>
-			<form>
+			<form action="modifPassword.php" method="get">
 				<label>Votre mot de passe actuel</label>
 				<input type="password" required="true" name="password">
 				<label>Votre nouveau mot de passe</label>
@@ -36,9 +36,9 @@
     		echo $_SESSION['tel']."<br/>";
     		echo $_SESSION['password']."<br/>";
 
-			$req = $bdd->prepare('UPDATE admin SET mail = :newPassword WHERE id = :id');
+			$req = $bdd->prepare('UPDATE admin SET password = :newPassword WHERE id = :id');
 			$req->execute(array(
-				'newPassword' => sha1($_GET['newPassword']),
+				'newPassword' => $_GET['newPassword'],
 				'id' => $_SESSION['id']
 				));
 			

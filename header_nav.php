@@ -25,3 +25,4 @@
 				</li>
 			</ul>
 		</nav>
+		<?php 	echo basename($_SERVER['PHP_SELF']); /* Returns The Current PHP File Name */	?>

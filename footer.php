@@ -3,8 +3,8 @@
 				<?php
 					if (isset($_SESSION['id']) && !isset($_GET['logOut'])) {
 				?>
-					<form method="get" action="footer.php">
-						<input type="submit" name="logOut">
+					<form method="get" action="<?php echo basename($_SERVER['PHP_SELF']) ?>">
+						<input type="submit" name="logOut" value="déconnexion">
 					</form>
 				<?php
 					}
