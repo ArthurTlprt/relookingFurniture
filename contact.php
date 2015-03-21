@@ -7,10 +7,6 @@
 			<article>
 			</article>
 		</section>
-		<footer>
-		</footer>
-	</body>
-</html>
 <?php
 	include("footer.php");
 ?>
