@@ -6,19 +6,44 @@
 	}
 	else
 	{
-		//faire un INSERT INTO product ...
-		//ecrire un formulaire
-		echo $_SESSION['mail']."<br/>";
-    		echo $_SESSION['tel']."<br/>";
-    		echo $_SESSION['password']."<br/>";
+		if (!isset($_GET['type'])) 
+		{
 ?>
 		<section>
-			<article>
-			</article>
-			<article>
-			</article>
+			<form action="addProduct.php" method="get">
+				<label>Type: </label>
+				<input type="text" required="true" name="type" >
+				<label>Nom: </label>
+				<input type="text" required="true" name="nom" >
+				<label>Prix: </label>
+				<input type="text" required="true" name="prix" >
+				<label>Description: </label><!--
+				<textarea name="description" rows="5" cols="50" autocomplete="on" placeholder="Insérer ici votre description"></textarea>-->
+				<textarea name="description" rows="5" cols="50" ></textarea>
+				<input type="submit">
+			</form>
 		</section>
-<?php
+		<?php
+		}
+		else
+		{
+			try
+			{
+				$bdd = new PDO('mysql:host=localhost;dbname=meuble', 'root', '');
+			}
+			catch(Exception $e)
+			{
+			        die('Erreur : '.$e->getMessage());
+			}
+
+			$req = $bdd->prepare('INSERT INTO produit(type, nom, prix, description) VALUES(:type, :nom, :prix, :description)');
+			$req->execute(array(
+				'type' => htmlspecialchars($_GET['type']),
+				'nom' => htmlspecialchars($_GET['nom']),
+				'prix' => htmlspecialchars($_GET['prix']),
+				'description' => htmlspecialchars($_GET['description'])
+				));
+		}
 	}
 	include("footer.php");
 ?>
