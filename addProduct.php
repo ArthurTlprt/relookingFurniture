@@ -17,9 +17,8 @@
 				<input type="text" required="true" name="nom" >
 				<label>Prix: </label>
 				<input type="text" required="true" name="prix" >
-				<label>Description: </label><!--
-				<textarea name="description" rows="5" cols="50" autocomplete="on" placeholder="Insérer ici votre description"></textarea>-->
-				<textarea name="description" rows="5" cols="50" ></textarea>
+				<label>Description: </label>
+				<textarea name="description" rows="5" cols="50" autocomplete="on" placeholder="Insérer ici votre description"></textarea>
 				<input type="submit">
 			</form>
 		</section>
